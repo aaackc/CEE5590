@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Rock Paper Scissor Game</title>
+    <style>
+        button #paper{
+            background-image: ;
+        }
+    </style>
+</head>
+<body>
+<! Input Buttons are described here>
+<button id="rock"><img src="rock.png" width="100" height="100"> </button>
+<! Rock Button>
+<button id="paper"><img src="paper.png" width="100" height="100"></button>
+<! Paper Button>
+<button id="scissors"><img src="scissors.png" width="100" height="100"></button>
+<! Scissors Button>
+<! Javascript with whole logic implemented>
+<script>
+    document.getElementById('rock').onclick = user;
+    document.getElementById('paper').onclick = user;
+    document.getElementById('scissors').onclick = user;
+
+
+    function user(){
+        var userChoice = this.id;
+        document.write("User: " + userChoice)
+
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "rock";
+        }else if(computerChoice <= 0.67) {
+            computerChoice = "paper";
+        }else{
+            computerChoice = "scissors";
+        };
+
+        document.write(" Computer: " + computerChoice);
+
+        document.write(compare(userChoice, computerChoice));
+
+        function compare(choice1, choice2) {
+
+            if (choice1 === choice2) {
+                return " The result is a tie!";
+            }
+
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    return " rock wins";
+                }else{
+                    return " paper wins";
+                }
+            }
+
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    return " paper wins";
+                } else {
+                    return " scissors wins";
+                }
+            }
+
+            if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    return " rock wins";
+                } else {
+                    return " scissors wins";
+                }
+            }
+        }
+    }
+</script>
+<! Javascript ends here>
+</body>
+</html>
