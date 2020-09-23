@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="offset-10 col-md-2">
+    <button mat-raised-button color="primary" (click)="addNewpatient()"  type="submit"><i class="fa fa-plus" aria-hidden="true"></i>
+      Add New</button>
+  </div>
+</div>
+
+<! HTML Code to Generate and Remove ToDo patients List>
+<div class="card-body">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class=" text-primary">
+      <th>
+        Number
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+        Patient Name
+      </th>
+      <th>
+      </th>
+      </thead>
+      <tbody *ngFor="let patientByWeek of patientByWeekArray ;  let $week = index">
+      <tr>
+        <td>
+          {{patientByWeek.week}}
+        </td>
+        <td>
+          <mat-form-field >
+            <input matInput  [matDatepicker]="picker1" [(ngModel)]="patientByWeek.date" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-md-8">
+              <mat-form-field class="example-full-width">
+                <!Input Box in the ToDo List>
+                <input matInput placeholder="Enter a patient Name" [(ngModel)]="patientByWeek.patient" type="text">
+              </mat-form-field>
+            </div>
+          </div>
+        </td>
+        <td>
+          <!Delete Button in the ToDo List>
+          <button mat-fab color="primary" (click)="removepatient($week)" aria-label="Icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
