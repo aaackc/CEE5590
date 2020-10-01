@@ -1,0 +1,35 @@
+
+
+  <section>
+    <div class="card table-card " style="margin-top: 20px;">
+      <div class="card-header">
+        <h5> Resturents List
+
+          <a  href="javascript:void(0);" (click)="getNearestResturent()" class="float-right">
+            <button type="button" class="btn btn-primary">Get Nearest Restaurants </button>
+        </a>
+        </h5>
+           
+    </div>
+      <div class="card-body ">
+        <table class="table table-hover">
+          <thead class="thead ">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of Restaurentlistdata.venues">       
+              <td>{{item.name}}</td>
+              <td> {{item.location.address}} </td>
+              <td>{{item.location.distance}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+  

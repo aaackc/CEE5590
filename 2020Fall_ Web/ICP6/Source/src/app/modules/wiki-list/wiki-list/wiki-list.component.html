@@ -1,0 +1,39 @@
+
+
+  <section>
+    <div class="card table-card " style="margin-top: 20px;">
+      <div class="card-header">
+        <h5> WikiPedia List
+        </h5>
+        <input class="form-control" placeholder="Wikipedia search" type="text" [(ngModel)]="searchValue" >   
+            <button  class="float-right" (click)="getWikiList()" class="btn btn-info mt-2">Search Wikipedia Terms</button>
+    </div>
+      <div class="card-body ">
+        <table class="table table-hover">
+          <thead class="thead ">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of wikiResult">       
+              <td>{{item.title}}</td>
+              <td> {{item.body}} </td>
+              <td>
+                <ul class="nav justify-content-start">
+                  <li class="nav-item mr-2"> <a href="{{item.page}}" target="_blank" title="Details" data-placement="top"> 
+                    <i class="fas fa-link"></i> </a>
+                  </li>
+            
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+  
